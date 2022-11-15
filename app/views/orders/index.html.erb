@@ -1,0 +1,27 @@
+<br/>
+
+<table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Navn</th>
+        <th>Telefon</th>
+        <th>Produkt</th>
+        <th>Notat</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.first_name + ' ' + order.last_name, order %></td>
+          <td><%= order.phone %></td>
+          <td><%= order.product %></td>
+          <td><%= order.note %></td>
+          <td><%= link_to 'Slett', order, data: { turbo_method: :delete, turbo_confirm: 'Er du sikker?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+<br/>
+<%= link_to "Ny Bestilling", new_order_path, class:"btn btn-secondary" %>
