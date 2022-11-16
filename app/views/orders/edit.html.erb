@@ -1,3 +1,4 @@
+<br/>
 <h1>Endre bestilling</h1>
 <br/>
 <%= render "form", order: @order %>
@@ -5,6 +6,7 @@
 <br>
 
 <div>
+  <%= @form.submit "Oppdater bestilling", class:"btn btn-success" %>
   <%= link_to "Vis bestilling", @order, class:"btn btn-secondary" %>
   <%= link_to "Tilbake", orders_path, class:"btn btn-danger" %>
 </div>

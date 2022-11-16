@@ -1,27 +1,16 @@
-<div id="<%= dom_id order %>">
-  <p>
-    <strong>Fornavn:</strong>
-    <%= order.first_name %>
-  </p>
-
-  <p>
-    <strong>Etternavn:</strong>
-    <%= order.last_name %>
-  </p>
-
-  <p>
-    <strong>Telefon:</strong>
-    <%= order.phone %>
-  </p>
-
-  <p>
-    <strong>Produkt:</strong>
-    <%= order.product %>
-  </p>
-
-  <p>
-    <strong>Notat:</strong>
-    <%= order.note %>
-  </p>
-
+<br/>
+<div class="card text-center">
+  <div class="card-header">
+    <h5><%= order.first_name + ' ' + order.last_name%></h5>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= order.product %></h5>
+    <p class="card-text"><%= order.note %></p>
+    <br/>
+    <p><b>Telefon:</b> <%= order.phone %></p>
+    <br/>
+    <%= link_to "Tilbake", orders_path, class:"btn btn-outline-primary me-2" %>
+    <%= link_to "Endre", edit_order_path(@order), class:"btn btn-outline-success me-2" %>
+    <%= link_to "Slett", @order, data: { turbo_method: :delete, turbo_confirm: 'Er du sikker?' }, class:"btn btn-danger me-2" %>
+  </div>
 </div>
